@@ -10,6 +10,8 @@ import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
 
+/* Using JavaMail Api to store NFC IDs */
+
 public class CheckingMails 
 {
    static Scanner read = new Scanner(System.in);
@@ -57,7 +59,8 @@ public class CheckingMails
      
       for (int i = 0, n = messages.length; i < n; i++) 
       	{
-         Message message = messages[i];
+         /* read the first message and assign it to the first user */
+	 Message message = messages[i];
          System.out.println("--------------------------------------------");
          System.out.println("User Number " + (i + 1));
          
@@ -100,7 +103,7 @@ public class CheckingMails
       String host = "pop.gmail.com";// server
       String mailStoreType = "pop3"; //type
       String username = "nfcarchive@gmail.com";// destination email username
-      String password = "nfc_java";// destination email pass
+      String password = "xxxxxxxxx";// destination email pass
 
       check(host, mailStoreType, username, password);
    }
