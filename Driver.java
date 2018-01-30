@@ -120,11 +120,11 @@ public class Driver
 	   
 	public static void main(String[] args) 
 	{
-		  String host = "pop.gmail.com";// server
+	      String host = "pop.gmail.com";// server
 	      
 	      String mailStoreType = "pop3"; //type
 	      String username = "nfcarchive@gmail.com";// destination email username
-	      String password = "nfc_java";// destination email pass
+	      String password = "nfc_java";// destination email passphrase
 
 	      check(host, mailStoreType, username, password);
 		
@@ -170,8 +170,6 @@ public class Driver
 			psInsert.setString(1, user_2);
 			psInsert.setString(2, id_2);
 			psInsert.executeUpdate();
-			
-			
 			
 			
 			psInsert = myConn.prepareStatement("Insert into UserLog values(?, ?, ?)");
