@@ -64,12 +64,14 @@ public class CheckingMails
          System.out.println("--------------------------------------------");
          System.out.println("User Number " + (i + 1));
          
+	 //Unique ID obtained from the subject field
          ID[i] = message.getSubject();
         	 
          System.out.println("From: " + message.getFrom()[0]);
          System.out.println("ID: " +  ID[i]);
          }
       
+       //started with a sample of three
       id_1 = ID[0];
       id_2 = ID[1];
       id_3 = ID[2];
@@ -97,7 +99,7 @@ public class CheckingMails
          e.printStackTrace();
       }
    }
-
+	
    public static void main(String[] args) 
    {
       String host = "pop.gmail.com";// server
