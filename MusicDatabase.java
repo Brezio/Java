@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Properties;
 
+//Store all information obtained from the mail such as ID in an SQL Database
 
 public class MusicDatabase extends CheckingMails
 {
@@ -40,7 +41,7 @@ public class MusicDatabase extends CheckingMails
 //			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 //			Calendar cal = Calendar.getInstance();
 //			System.out.println(dateFormat.format(cal.getTime()));
-//			
+			
 			Properties props = new Properties();
 			props.put("user", "Te");
 			props.put("password", "Te");
@@ -52,6 +53,8 @@ public class MusicDatabase extends CheckingMails
 			s = conn.createStatement();
 			statements.add(s);
 			
+			//create a table that contains user profile and params such as name/ID
+			
 			s.execute("Create table Profile(ID varchar(60), "+" Name varchar(40))");
 			s.execute("Create table Stats("+"Date int, "+" Mood varchar(20)," + "Time varchar(20)," + "ID varchar(40))");
 			
@@ -62,7 +65,7 @@ public class MusicDatabase extends CheckingMails
 			System.out.println("\nEnter your name please: ");
 			String name_1 = read.nextLine();
 			psInsert.setString(2, name_1);
-		    psInsert.executeUpdate();
+		        psInsert.executeUpdate();
 
 			psInsert.setString(1, id_2);
 			System.out.println("Enter your name please: ");
@@ -71,15 +74,17 @@ public class MusicDatabase extends CheckingMails
 			psInsert.executeUpdate();
 			
 		
-//			psInsert = conn.prepareStatement("Insert into Stats values(?, ?, ?, ?)");
-//			statements.add(psInsert);
-//			
-//			psInsert.setInt(1,1);
-//			psInsert.setString(2, "lol" );
-//			psInsert.setString(3, "John");
-//			psInsert.setInt(4, 10);
-//			psInsert.executeUpdate();
-//	
+			psInsert = conn.prepareStatement("Insert into Stats values(?, ?, ?, ?)");
+			statements.add(psInsert);
+			
+			psInsert.setInt(1,1);
+			psInsert.setString(2, "lol" );
+			psInsert.setString(3, "John");
+			psInsert.setInt(4, 10);
+			psInsert.executeUpdate();
+			
+			
+			//display complete user profile
 			rs = s.executeQuery("SELECT * FROM Profile");
 			
 			int number = 0;
@@ -92,7 +97,6 @@ public class MusicDatabase extends CheckingMails
 			}
 			
 			System.out.println("\nDisplaying User Profile\n\n");
-			
 			System.out.println("\n\tUser Profile");
 			System.out.println("------------------------------");
 			System.out.println("ID" +"\t\t" + "\tName");
@@ -205,14 +209,4 @@ public class MusicDatabase extends CheckingMails
 
 	}
 
-
-	private void printSQLException(SQLException se)
-	{
-		// TODO Auto-generated method stub
-	}
-
-	private void reportFailure(String string)
-	{
-		// TODO Auto-generated method stub
-	}
 }
